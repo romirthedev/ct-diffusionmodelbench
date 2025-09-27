@@ -1,0 +1,112 @@
+{
+  "benchmark_info": {
+    "model_path": "Dream-org/Dream-Coder-v0-Instruct-7B",
+    "model_name": "Dream-Coder-v0-Instruct-7B",
+    "total_samples": 100,
+    "timestamp": "2025-09-22T00:34:04.067776",
+    "dataset": "MathOlympiadBench"
+  },
+  "overall_metrics": {
+    "generation_success_rate": 100.0,
+    "lean_compilation_rate": 0.0,
+    "apparent_completeness_rate": 3.0,
+    "average_generation_time": 49.61474699735641,
+    "median_generation_time": 49.73443329334259,
+    "average_solution_length": 322.63,
+    "median_solution_length": 198.0,
+    "average_lean_keywords": 1.67,
+    "average_lean_tactics": 0.4,
+    "theorem_declaration_rate": 3.0,
+    "proof_structure_rate": 28.000000000000004,
+    "sorry_usage_rate": 0.0,
+    "balanced_syntax_rate": 77.0,
+    "average_formal_overlap": 17.240849479989222,
+    "average_problem_overlap": 43.730265559629345,
+    "average_complexity_score": 3.55
+  },
+  "category_analysis": {
+    "number theory": {
+      "count": 28,
+      "success_rate": 100.0,
+      "compilation_rate": 0.0,
+      "completeness_rate": 0.0,
+      "avg_generation_time": 49.350086765629904,
+      "avg_solution_length": 250.32142857142858,
+      "avg_complexity_score": 1.8928571428571428,
+      "theorem_rate": 0.0,
+      "sorry_rate": 0.0
+    },
+    "algebra": {
+      "count": 53,
+      "success_rate": 100.0,
+      "compilation_rate": 0.0,
+      "completeness_rate": 1.8867924528301887,
+      "avg_generation_time": 49.69054956256219,
+      "avg_solution_length": 275.9811320754717,
+      "avg_complexity_score": 3.6037735849056602,
+      "theorem_rate": 1.8867924528301887,
+      "sorry_rate": 0.0
+    },
+    "combinatorics": {
+      "count": 16,
+      "success_rate": 100.0,
+      "compilation_rate": 0.0,
+      "completeness_rate": 6.25,
+      "avg_generation_time": 49.8083660453558,
+      "avg_solution_length": 512.375,
+      "avg_complexity_score": 5.8125,
+      "theorem_rate": 6.25,
+      "sorry_rate": 0.0
+    },
+    "geometry": {
+      "count": 3,
+      "success_rate": 100.0,
+      "compilation_rate": 0.0,
+      "completeness_rate": 33.33333333333333,
+      "avg_generation_time": 49.713095585505165,
+      "avg_solution_length": 809.6666666666666,
+      "avg_complexity_score": 6.0,
+      "theorem_rate": 33.33333333333333,
+      "sorry_rate": 0.0
+    }
+  },
+  "quality_analysis": {
+    "solutions_with_theorems": 3,
+    "solutions_with_proofs": 28,
+    "solutions_with_sorry": 0,
+    "solutions_compiled": 0,
+    "empty_solutions": 1,
+    "high_quality_solutions": 3,
+    "avg_keywords_in_complete": 7.0,
+    "avg_tactics_in_complete": 2.6666666666666665,
+    "avg_keywords_in_compiled": 0,
+    "complexity_distribution": {
+      "low": 82,
+      "medium": 12,
+      "high": 6
+    }
+  },
+  "failure_analysis": {
+    "total_failures": 0
+  },
+  "detailed_statistics": {
+    "generation_time_stats": {
+      "min": 48.06462550163269,
+      "max": 51.2653329372406,
+      "std": 0.590739507685308,
+      "percentile_95": 50.02416794300079
+    },
+    "solution_length_stats": {
+      "min": 8,
+      "max": 1999,
+      "std": 338.3862483907997,
+      "percentile_95": 1017.0999999999999
+    },
+    "complexity_score_stats": {
+      "min": 0.5,
+      "max": 33.5,
+      "std": 5.5034080350270225,
+      "percentile_95": 16.0
+    }
+  }
+}

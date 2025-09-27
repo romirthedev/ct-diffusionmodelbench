@@ -1,0 +1,50 @@
+{
+  "benchmark_info": {
+    "model_path": "apple/DiffuCoder-7B-Instruct",
+    "total_samples": 100,
+    "timestamp": "2025-09-21T16:50:57.211524",
+    "dataset": "MathOlympiadBench"
+  },
+  "overall_metrics": {
+    "success_rate": 100.0,
+    "lean_compilation_rate": 0.0,
+    "average_generation_time": 8.023067255020141,
+    "average_solution_length": 707.98,
+    "average_lean_keywords": 1.74,
+    "proof_structure_rate": 37.0,
+    "sorry_usage_rate": 8.0,
+    "balanced_syntax_rate": 76.0,
+    "average_formal_overlap": 21.94860275194114
+  },
+  "category_analysis": {
+    "number theory": {
+      "count": 28,
+      "success_rate": 100.0,
+      "avg_generation_time": 8.093521893024445,
+      "avg_solution_length": 773.3571428571429,
+      "proof_structure_rate": 25.0
+    },
+    "algebra": {
+      "count": 53,
+      "success_rate": 100.0,
+      "avg_generation_time": 7.988861052495129,
+      "avg_solution_length": 659.566037735849,
+      "proof_structure_rate": 50.943396226415096
+    },
+    "combinatorics": {
+      "count": 16,
+      "success_rate": 100.0,
+      "avg_generation_time": 8.01725958287716,
+      "avg_solution_length": 770.25,
+      "proof_structure_rate": 12.5
+    },
+    "geometry": {
+      "count": 3,
+      "success_rate": 100.0,
+      "avg_generation_time": 8.000774463017782,
+      "avg_solution_length": 621.0,
+      "proof_structure_rate": 33.33333333333333
+    }
+  },
+  "difficulty_analysis": {}
+}

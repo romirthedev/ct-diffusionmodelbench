@@ -1,0 +1,39 @@
+
+Dream-Coder MathOlympiadBench Benchmark Summary
+============================================================
+
+Model: Dream-Coder-v0-Instruct-7B
+Dataset: MathOlympiadBench
+Total Samples: 100
+Timestamp: 2025-09-22T00:34:04.067776
+
+OVERALL PERFORMANCE
+==============================
+Generation Success Rate: 100.0%
+Lean Compilation Success Rate: 0.0%
+Apparent Completeness Rate: 3.0%
+Average Generation Time: 49.61s
+
+SOLUTION QUALITY
+==============================
+Average Solution Length: 323 characters
+Average Lean Keywords Used: 1.7
+Average Lean Tactics Used: 0.4
+Theorem Declaration Rate: 3.0%
+Proof Structure Rate: 28.0%
+Sorry Usage Rate: 0.0%
+Balanced Syntax Rate: 77.0%
+
+CONTENT ANALYSIS
+==============================
+Average Formal Overlap: 17.2%
+Average Problem Overlap: 43.7%
+Average Complexity Score: 3.5
+
+TOP CATEGORIES BY SUCCESS RATE
+==============================
+number theory: 100.0% success, 0.0% compiled (28 samples)
+algebra: 100.0% success, 0.0% compiled (53 samples)
+combinatorics: 100.0% success, 0.0% compiled (16 samples)
+geometry: 100.0% success, 0.0% compiled (3 samples)
+============================================================

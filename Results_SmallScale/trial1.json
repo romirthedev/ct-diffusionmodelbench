@@ -1,0 +1,102 @@
+{
+  "model_path": "apple/DiffuCoder-7B-cpGRPO",
+  "evaluation_timestamp": "2025-09-14 14:28:56",
+  "dataset_info": {
+    "name": "MathOlympiadBench",
+    "total_problems": 360,
+    "evaluated_problems": 3
+  },
+  "results": [
+    {
+      "problem_id": 0,
+      "name": "Usa2005P2",
+      "category": "number theory",
+      "solved": true,
+      "tags": [
+        "number theory"
+      ],
+      "prompt": "<|im_start|>system\nYou are a mathematical assistant skilled in solving olympiad-level problems. You will be given a mathematical problem and its formal statement. Please provide:\n1. A clear explanation of what the problem is asking\n2. Your approach to solving it  \n3. Step-by-step solution with mathematical reasoning\n4. Any key insights or techniques used\n<|im_end|>\n\n<|im_start|>user\nProblem: Usa2005P2\nCategory: number theory\nTags: None\n\nProblem Description:\n/-!\n# USA Mathematical Olympiad 2005, Problem 2\n\nProve that there do not exist integers x,y,z such that\n\n        x⁶ + x³ + x³y + y = 147¹⁵⁷\n        x³ + x³y + y² + y + z⁹ = 157¹⁴⁷.\n-/\n\nFormal Statement (Lean4):\ntheorem usa2005_p2 :\n    ¬∃ (x y z : ℤ),\n       x^6 + x^3 + x^3 * y + y = 147^157 ∧\n       x^3 + x^3 * y + y^2 + y + z^9 = 157^147 := by sorry\n\nPlease analyze this problem and provide a comprehensive solution approach with detailed mathematical reasoning.\n<|im_end|>\n\n<|im_start|>assistant\n",
+      "response": "This is is not assist with the request.",
+      "response_time_seconds": 4.9206862449646,
+      "response_length": 39,
+      "word_count": 8,
+      "mathematical_content_score": 0.0,
+      "structure_score": 0.0,
+      "quality_tier": "poor"
+    },
+    {
+      "problem_id": 1,
+      "name": "Imo2006P3",
+      "category": "algebra",
+      "solved": true,
+      "tags": [
+        "algebra"
+      ],
+      "prompt": "<|im_start|>system\nYou are a mathematical assistant skilled in solving olympiad-level problems. You will be given a mathematical problem and its formal statement. Please provide:\n1. A clear explanation of what the problem is asking\n2. Your approach to solving it  \n3. Step-by-step solution with mathematical reasoning\n4. Any key insights or techniques used\n<|im_end|>\n\n<|im_start|>user\nProblem: Imo2006P3\nCategory: algebra\nTags: None\n\nProblem Description:\n/-!\n# International Mathematical Olympiad 2006, Problem 3\n\nDetermine the least real number $M$ such that\n$$\n\\left| ab(a^2 - b^2) + bc(b^2 - c^2) + ca(c^2 - a^2) \\right|\n≤ M (a^2 + b^2 + c^2)^2\n$$\nfor all real numbers $a$, $b$, $c$.\n-/\n\nFormal Statement (Lean4):\nnoncomputable abbrev solution : ℝ := 9 * Real.sqrt 2 / 32\n\ntheorem imo2006_p3 :\n    IsLeast\n      { M | (∀ a b c : ℝ,\n              |a * b * (a ^ 2 - b ^ 2) + b * c * (b ^ 2 - c ^ 2) + c * a * (c ^ 2 - a ^ 2)| ≤\n              M * (a ^ 2 + b ^ 2 + c ^ 2) ^ 2) } solution := by sorry\n\nPlease analyze this problem and provide a comprehensive solution approach with detailed mathematical reasoning.\n<|im_end|>\n\n<|im_start|>assistant\n",
+      "response": "Your assistant assistant't assist with the request.",
+      "response_time_seconds": 4.696865558624268,
+      "response_length": 51,
+      "word_count": 7,
+      "mathematical_content_score": 0.0,
+      "structure_score": 0.0,
+      "quality_tier": "poor"
+    },
+    {
+      "problem_id": 2,
+      "name": "Imo2020P2",
+      "category": "algebra",
+      "solved": true,
+      "tags": [
+        "algebra",
+        "inequality"
+      ],
+      "prompt": "<|im_start|>system\nYou are a mathematical assistant skilled in solving olympiad-level problems. You will be given a mathematical problem and its formal statement. Please provide:\n1. A clear explanation of what the problem is asking\n2. Your approach to solving it  \n3. Step-by-step solution with mathematical reasoning\n4. Any key insights or techniques used\n<|im_end|>\n\n<|im_start|>user\nProblem: Imo2020P2\nCategory: algebra\nTags: None\n\nProblem Description:\n/-!\n# International Mathematical Olympiad 2020, Problem 2\n\nThe real numbers `a`, `b`, `c`, `d` are such that `a ≥ b ≥ c ≥ d > 0` and `a + b + c + d = 1`.\nProve that `(a + 2b + 3c + 4d) a^a b^b c^c d^d < 1`.\n-/\n\nFormal Statement (Lean4):\ntheorem imo2020_q2 (a b c d : ℝ) (hd0 : 0 < d) (hdc : d ≤ c) (hcb : c ≤ b) (hba : b ≤ a)\n    (h1 : a + b + c + d = 1) : (a + 2 * b + 3 * c + 4 * d) * a ^ a * b ^ b * c ^ c * d ^ d < 1 := by sorry\n\nPlease analyze this problem and provide a comprehensive solution approach with detailed mathematical reasoning.\n<|im_end|>\n\n<|im_start|>assistant\n",
+      "response": "Here is the code to the the task.",
+      "response_time_seconds": 4.6755101680755615,
+      "response_length": 33,
+      "word_count": 8,
+      "mathematical_content_score": 0.0,
+      "structure_score": 0.0,
+      "quality_tier": "poor"
+    }
+  ],
+  "statistics": {
+    "quality_distribution": {
+      "poor": 3
+    },
+    "category_performance": {
+      "number theory": {
+        "count": 1,
+        "avg_mathematical_content_score": 0.0,
+        "avg_structure_score": 0.0,
+        "avg_response_time": 4.9206862449646,
+        "quality_distribution": {
+          "poor": 1
+        }
+      },
+      "algebra": {
+        "count": 2,
+        "avg_mathematical_content_score": 0.0,
+        "avg_structure_score": 0.0,
+        "avg_response_time": 4.6861878633499146,
+        "quality_distribution": {
+          "poor": 2
+        }
+      }
+    },
+    "overall": {
+      "avg_response_length": 41.0,
+      "avg_word_count": 7.666666666666667,
+      "avg_mathematical_content_score": 0.0,
+      "avg_structure_score": 0.0,
+      "avg_response_time": 4.76435399055481
+    },
+    "solved_problems_performance": {
+      "count": 3,
+      "avg_mathematical_content_score": 0.0,
+      "quality_distribution": {
+        "poor": 3
+      }
+    }
+  }
+}

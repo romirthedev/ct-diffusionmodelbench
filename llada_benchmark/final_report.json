@@ -1,0 +1,51 @@
+{
+  "benchmark_info": {
+    "model_path": "inclusionAI/LLaDA-MoE-7B-A1B-Instruct",
+    "total_samples": 100,
+    "timestamp": "2025-09-23T20:48:27.398540",
+    "dataset": "MathOlympiadBench",
+    "device": "cuda",
+    "dtype": "torch.bfloat16"
+  },
+  "overall_metrics": {
+    "success_rate": 100.0,
+    "lean_compilation_rate": 0.0,
+    "average_generation_time": 57.08704599999998,
+    "average_solution_length": 943.98,
+    "average_lean_keywords": 1.5,
+    "proof_structure_rate": 26.0,
+    "sorry_usage_rate": 9.0,
+    "balanced_syntax_rate": 84.0,
+    "average_formal_overlap": 32.48587844214022
+  },
+  "category_analysis": {
+    "number theory": {
+      "count": 28,
+      "success_rate": 100.0,
+      "avg_generation_time": 57.148157142857144,
+      "avg_solution_length": 931.8214285714286,
+      "proof_structure_rate": 28.57142857142857
+    },
+    "algebra": {
+      "count": 53,
+      "success_rate": 100.0,
+      "avg_generation_time": 56.85208490566038,
+      "avg_solution_length": 1026.3207547169811,
+      "proof_structure_rate": 20.754716981132077
+    },
+    "combinatorics": {
+      "count": 16,
+      "success_rate": 100.0,
+      "avg_generation_time": 57.7667,
+      "avg_solution_length": 754.0,
+      "proof_structure_rate": 31.25
+    },
+    "geometry": {
+      "count": 3,
+      "success_rate": 100.0,
+      "avg_generation_time": 57.042833333333334,
+      "avg_solution_length": 616.0,
+      "proof_structure_rate": 66.66666666666666
+    }
+  }
+}
