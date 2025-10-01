@@ -53,8 +53,9 @@ pip install -r requirements.txt
 ```
 If you already created one:
 
-bash
+```bash
 source venv/bin/activate
+```
 
 8. Set Hugging Face Cache Directory
 Set these environment variables to avoid filling home directory:
