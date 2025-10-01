@@ -33,12 +33,12 @@ cd /scratch/10936/romirpatel/ct-diffusionmodelbench
 7. Setup and Activate Virtual Environment
 If you haven't created the virtual environment:
 
-bash
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-pip install sentencepiece protobuf
+```
 If you already created one:
 
 bash
@@ -46,8 +46,9 @@ source venv/bin/activate
 8. Set Hugging Face Cache Directory
 Set these environment variables to avoid filling home directory:
 
-bash
+```
 export HF_HOME=$SCRATCH/huggingface_cache
 export HF_HUB_CACHE=$HF_HOME
 export TRANSFORMERS_CACHE=$HF_HOME
 mkdir -p $HF_HOME
+```
