@@ -1,0 +1,41 @@
+[
+    {
+        "model": "diffucoder",
+        "size": "7B",
+        "denoising_steps": 256,
+        "total_solutions": 100,
+        "successful_generations": 100,
+        "compilation_success_rate": 0.0,
+        "valid_lean_syntax_rate": 0.0,
+        "proof_structure_usage": 37.0,
+        "avg_generation_time": 8.023067255020141,
+        "avg_lean_keywords_used": 1.74,
+        "theorems_used": 0
+    },
+    {
+        "model": "dream",
+        "size": "7B",
+        "denoising_steps": 256,
+        "total_solutions": 100,
+        "successful_generations": 100,
+        "compilation_success_rate": 0.0,
+        "valid_lean_syntax_rate": 0.0,
+        "proof_structure_usage": 28.000000000000004,
+        "avg_generation_time": 49.61474699735641,
+        "avg_lean_keywords_used": 1.67,
+        "theorems_used": 3
+    },
+    {
+        "model": "llada",
+        "size": "7B",
+        "denoising_steps": 128,
+        "total_solutions": 100,
+        "successful_generations": 100,
+        "compilation_success_rate": 0.0,
+        "valid_lean_syntax_rate": 0.0,
+        "proof_structure_usage": 26.0,
+        "avg_generation_time": 57.08704599999998,
+        "avg_lean_keywords_used": 1.5,
+        "theorems_used": 0
+    }
+]

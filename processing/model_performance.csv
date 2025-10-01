@@ -1,0 +1,4 @@
+model,size,denoising_steps,total_solutions,successful_generations,compilation_success_rate,valid_lean_syntax_rate,proof_structure_usage,avg_generation_time,avg_lean_keywords_used,theorems_used
+diffucoder,7B,256,100,100,0.0,0.0,37.0,8.023067255020141,1.74,0
+dream,7B,256,100,100,0.0,0.0,28.000000000000004,49.61474699735641,1.67,3
+llada,7B,128,100,100,0.0,0.0,26.0,57.08704599999998,1.5,0
