@@ -1,6 +1,7 @@
 import os
 import json
 import torch
+import torch.nn as nn
 import matplotlib.pyplot as plt
 from datasets import load_dataset
 from transformers import (
@@ -14,11 +15,11 @@ from transformers import (
 import transformers
 
 # Configuration
-MODEL_NAME = "gsai-lm/llada-8b-instruct"
+MODEL_NAME = "GSAI-ML/LLaDA-8B-Instruct"
 DATASET_NAME = "AI-MO/NuminaMath-LEAN"
 OUTPUT_DIR = "./llada-numina-finetuned"
 MAX_SAMPLES = 1000
-MAX_LENGTH = 2048
+MAX_LENGTH = 1024  # Reduced to prevent OOM
 
 def format_instruction(example):
     """Format the dataset examples into instruction format for NuminaMath-LEAN."""
@@ -86,11 +87,6 @@ def main():
     # Format dataset
     dataset = dataset.map(format_instruction, remove_columns=dataset.column_names)
     
-    # Filter out empty examples
-    dataset = dataset.filter(lambda example: len(example["text"].strip()) > 0)
-    
-    print(f"Dataset size after filtering: {len(dataset)}")
-    
     # Split into train and validation
     dataset = dataset.train_test_split(test_size=0.1, seed=42)
     
@@ -116,6 +112,31 @@ def main():
         mlm=False
     )
     
+    # Custom trainer class to handle loss computation
+    class CustomTrainer(Trainer):
+        def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+            labels = inputs.get("labels")
+            # Forward pass
+            outputs = model(**inputs)
+            logits = outputs.get("logits")
+            
+            # Compute custom loss
+            if labels is not None:
+                # Shift so that tokens < n predict n
+                shift_logits = logits[..., :-1, :].contiguous()
+                shift_labels = labels[..., 1:].contiguous()
+                # Flatten the tokens
+                loss_fct = nn.CrossEntropyLoss()
+                shift_logits = shift_logits.view(-1, shift_logits.size(-1))
+                shift_labels = shift_labels.view(-1)
+                # Enable model parallelism
+                shift_labels = shift_labels.to(shift_logits.device)
+                loss = loss_fct(shift_logits, shift_labels)
+            else:
+                loss = None
+            
+            return (loss, outputs) if return_outputs else loss
+
     # Custom callback to track training metrics
     class MetricsCallback(TrainerCallback):
         def __init__(self):
@@ -135,13 +156,14 @@ def main():
     training_args = TrainingArguments(
         output_dir=OUTPUT_DIR,
         num_train_epochs=3,
-        per_device_train_batch_size=8,  # Reduced for full fine-tuning
-        per_device_eval_batch_size=8,
-        gradient_accumulation_steps=4,  # Increased to maintain effective batch size
+        per_device_train_batch_size=2,  # Further reduced to prevent OOM
+        per_device_eval_batch_size=2,
+        gradient_accumulation_steps=2,  # Reduced to prevent OOM
         learning_rate=5e-5,  # Lower learning rate for full fine-tuning
         bf16=True,
-        save_strategy="epoch",
-        evaluation_strategy="steps",
+        save_strategy="steps",
+        save_steps=50,
+        eval_strategy="steps",
         eval_steps=50,
         logging_steps=10,
         warmup_steps=100,
@@ -151,13 +173,13 @@ def main():
         report_to="none",
         dataloader_num_workers=4,
         remove_unused_columns=False,
-        gradient_checkpointing=True,
+        gradient_checkpointing=False,
         weight_decay=0.01,
         lr_scheduler_type="cosine",
     )
     
-    # Initialize Trainer with metrics callback
-    trainer = Trainer(
+    # Initialize custom trainer with metrics callback
+    trainer = CustomTrainer(
         model=model,
         args=training_args,
         train_dataset=tokenized_dataset["train"],

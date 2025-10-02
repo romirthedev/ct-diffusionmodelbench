@@ -3,7 +3,7 @@ import json
 import os
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-MODEL_NAME = "gsai-lm/llada-8b-instruct"
+MODEL_NAME = "GSAI-ML/LLaDA-8B-Instruct"
 FINETUNED_MODEL_PATH = "./llada-numina-finetuned"
 
 def load_model():
