@@ -585,7 +585,7 @@ def chat():
 
     # Generation hyperparameters (safer defaults)
     gen_length = 192
-    steps = 80
+    steps 1024 # from 80
     temperature_start = 0.65
     temperature_end = 0.75
     top_p_start = 0.95

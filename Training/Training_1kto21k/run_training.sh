@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH -J LLaDA_Continued_1kto21k      # Job name
+#SBATCH -o LLaDA_Continued_1kto21k.o%j   # Output file name
+#SBATCH -e LLaDA_Continued_1kto21k.e%j   # Error file name
+#SBATCH -p gh-dev                        # Queue name (changed to gh-dev for GPU support)
+#SBATCH -N 1                             # Total number of nodes requested
+#SBATCH -n 1                             # Total number of tasks (cores requested)
+#SBATCH -t 06:00:00                      # Run time (hh:mm:ss) - Increased for larger dataset
+
+
+# Load necessary modules
+module load gcc
+module load cuda
+module load python3
+
+# Set Hugging Face Cache Directory
+export HF_HOME=$SCRATCH/huggingface_cache
+export HF_HUB_CACHE=$HF_HOME
+export TRANSFORMERS_CACHE=$HF_HOME
+mkdir -p $HF_HOME
+
+# Activate your virtual environment
+source /scratch/10936/romirpatel/ct-diffusionmodelbench/venv/bin/activate
+
+# Navigate to the directory containing your train.py script
+cd /scratch/10936/romirpatel/ct-diffusionmodelbench/Training/Training_1kto21k
+
+# Run your Python training script for continued training
+/scratch/10936/romirpatel/ct-diffusionmodelbench/venv/bin/python train.py
