@@ -101,12 +101,19 @@ def main():
     
     # Tokenize function
     def tokenize_function(examples):
-        return tokenizer(
+        tokenized = tokenizer(
             examples["text"],
             truncation=True,
             max_length=MAX_LENGTH,
             padding=False,
+            return_tensors=None,  # Return Python lists, not tensors
         )
+        # Ensure input_ids are integers
+        if 'input_ids' in tokenized:
+            tokenized['input_ids'] = [[int(token_id) for token_id in seq] for seq in tokenized['input_ids']]
+        if 'attention_mask' in tokenized:
+            tokenized['attention_mask'] = [[int(mask) for mask in seq] for seq in tokenized['attention_mask']]
+        return tokenized
     
     print("Tokenizing dataset...")
     tokenized_dataset = dataset.map(
@@ -124,6 +131,14 @@ def main():
     # Custom trainer class to handle loss computation
     class CustomTrainer(Trainer):
         def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+            # Ensure input_ids are LongTensor
+            if 'input_ids' in inputs:
+                inputs['input_ids'] = inputs['input_ids'].long()
+            if 'attention_mask' in inputs:
+                inputs['attention_mask'] = inputs['attention_mask'].long()
+            if 'labels' in inputs:
+                inputs['labels'] = inputs['labels'].long()
+                
             labels = inputs.get("labels")
             # Forward pass
             outputs = model(**inputs)

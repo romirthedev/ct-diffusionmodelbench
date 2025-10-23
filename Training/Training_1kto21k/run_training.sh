@@ -2,7 +2,7 @@
 #SBATCH -J LLaDA_Continued_1kto21k      # Job name
 #SBATCH -o LLaDA_Continued_1kto21k.o%j   # Output file name
 #SBATCH -e LLaDA_Continued_1kto21k.e%j   # Error file name
-#SBATCH -p gh-dev                        # Queue name (changed to gh-dev for GPU support)
+#SBATCH -p gh                        # Queue name (changed to gh-dev for GPU support)
 #SBATCH -N 1                             # Total number of nodes requested
 #SBATCH -n 1                             # Total number of tasks (cores requested)
 #SBATCH -t 06:00:00                      # Run time (hh:mm:ss) - Increased for larger dataset
@@ -26,4 +26,4 @@ source /scratch/10936/romirpatel/ct-diffusionmodelbench/venv/bin/activate
 cd /scratch/10936/romirpatel/ct-diffusionmodelbench/Training/Training_1kto21k
 
 # Run your Python training script for continued training
-/scratch/10936/romirpatel/ct-diffusionmodelbench/venv/bin/python train.py
+python train.py
