@@ -66,3 +66,9 @@ export HF_HUB_CACHE=$HF_HOME
 export TRANSFORMERS_CACHE=$HF_HOME
 mkdir -p $HF_HOME
 ```
+
+9. In order to run inference, run the following command:
+
+```bash
+python Inference/chat_finetuned.py
+```

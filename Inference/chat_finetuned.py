@@ -508,7 +508,7 @@ def chat():
     print(f"[Device] Using: {device}")
 
     # Configuration
-    FINETUNED_MODEL_PATH = "./llada-numina-finetuned"
+    FINETUNED_MODEL_PATH = "./Training/Training_1kto21k/llada-numina-continued-1kto21k"
     USE_BASE_MODEL = False
     USE_DIFFUSION = True
 
@@ -585,7 +585,7 @@ def chat():
 
     # Generation hyperparameters (safer defaults)
     gen_length = 192
-    steps 1024 # from 80
+    steps= 1024 # from 80
     temperature_start = 0.65
     temperature_end = 0.75
     top_p_start = 0.95
