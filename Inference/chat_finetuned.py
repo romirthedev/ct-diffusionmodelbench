@@ -291,7 +291,7 @@ def interactive_chat(
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Chat with a finetuned LLaDA/LLaDA-MoE model using diffusion-style generation")
-    parser.add_argument("--model-dir", type=str, default=os.environ.get("FAST_OUTPUT_DIR", "./llada-moe-numina-finetuned-30k-5epochs"))
+    parser.add_argument("--model-dir", type=str, default=os.environ.get("FAST_OUTPUT_DIR", "./llada-numina-1kto21k"))
     parser.add_argument("--prompt", type=str, default=None, help="One-shot user prompt (omit or use --interactive for chat)")
     parser.add_argument("--max-length", type=int, default=2048)
     parser.add_argument("--gen-length", type=int, default=128)

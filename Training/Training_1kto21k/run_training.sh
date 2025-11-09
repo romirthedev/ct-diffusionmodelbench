@@ -25,5 +25,16 @@ source /scratch/10936/romirpatel/ct-diffusionmodelbench/venv/bin/activate
 # Navigate to the directory containing your train.py script
 cd /scratch/10936/romirpatel/ct-diffusionmodelbench/Training/Training_1kto21k
 
-# Run your Python training script for continued training
-python train.py
+# Sanity check: ensure FINETUNED_MODEL_DIR is set and points to a local directory
+if [[ -z "${FINETUNED_MODEL_DIR}" ]]; then
+  echo "ERROR: FINETUNED_MODEL_DIR is not set. Export an absolute path to your finetuned model directory before submitting." >&2
+  exit 1
+fi
+
+if [[ ! -d "${FINETUNED_MODEL_DIR}" ]]; then
+  echo "ERROR: FINETUNED_MODEL_DIR '${FINETUNED_MODEL_DIR}' does not exist on this node. Use an absolute path and verify the directory is accessible." >&2
+  exit 1
+fi
+
+# Run your Python training script for continued training (unbuffered output)
+python -u train.py
